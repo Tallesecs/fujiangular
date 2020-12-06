@@ -5,14 +5,14 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AlbumsComponent } from './components/albums/albums.component';
-import { PhotosComponent } from './photos/photos.component';
+import { AtendimentosComponent } from './components/atendimentos/atendimentos.component';
+import { AtendimentoDetalheComponent } from './components/atendimento-detalhe/atendimento-detalhe.component';
 
 @NgModule({
    declarations: [
       AppComponent,
-      AlbumsComponent,
-      PhotosComponent
+      AtendimentosComponent,
+      AtendimentoDetalheComponent
    ],
    imports: [
       BrowserModule,

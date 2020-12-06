@@ -1,0 +1,23 @@
+<h3>Atendimentos</h3>
+<div class="row mt-3" *ngIf="listarAtendimentos; else loading" style="margin-left: 25px">
+  <div class="card text-white bg-secondary" style="width: 20.5rem; margin-right: 2rem"
+       *ngFor="let atendimento of listarAtendimentos">
+    <div class="card-header text-center">
+      <h5 class="card-title">{{ atendimento.cliente }}</h5>
+    </div>
+    <div class="card-body">
+      <b>Pet:</b> {{ atendimento.pet }}
+    </div>
+    <div class="card-body">
+      <b>Servico:</b> {{ atendimento.servico }}
+    </div>
+    <div class="card-footer" style="text-align: center">
+      <a [routerLink]="['/atendimento/', atendimento.id]" class="btn btn-light btn-sm">Mais Detalhes</a>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="loader"></div>
+</ng-template>
+<br>

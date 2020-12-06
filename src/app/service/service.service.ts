@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+import { ListarAtendimentos } from '../shared/interface/atendimentos.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -8,13 +11,13 @@ export class ServiceService {
 
   constructor(private http: HttpClient) { }
 
-  getAtendimentos() {
-    return this.http.get('http://localhost:3000/atendimentos');
+  getAtendimentos(): Observable<ListarAtendimentos[]> {
+    return this.http.get<ListarAtendimentos[]>('http://localhost:3000/atendimentos',
+       {withCredentials: false, responseType: 'json' });
   }
 
-  getPhotos(albumId) {
-    return this.http.get(`https://jsonplaceholder.typicode.com/photos?albumId=${albumId}`);
+  getAtendimento(id): Observable<ListarAtendimentos> {
+    return this.http.get<ListarAtendimentos>(`http://localhost:3000/atendimentos/${id}`,
+      {withCredentials: false, responseType: 'json' });
   }
-  
-  
 }

@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AlbumsComponent } from './components/albums/albums.component';
-import { PhotosComponent } from "../app/photos/photos.component";
-
+import { AtendimentosComponent } from './components/atendimentos/atendimentos.component';
+import {AtendimentoDetalheComponent} from './components/atendimento-detalhe/atendimento-detalhe.component';
 
 const routes: Routes = [
-  { path: '', component: AlbumsComponent },
-  { path: 'atendimentos/:atendimentoId', component: AlbumsComponent }
+  { path: '', component: AtendimentosComponent },
+  { path: 'atendimento/:id', component: AtendimentoDetalheComponent }
 ];
 
 @NgModule({
