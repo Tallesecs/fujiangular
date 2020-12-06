@@ -1,0 +1,46 @@
+<div class="card w-75" style="margin: 0 auto; margin-top: 40px; margin-bottom: 100px" *ngIf="atendimento; else loading">
+  <div class="card  border-dark">
+
+    <div class="card-header text-center">
+      <h1>Atendimento</h1>
+      <div class="card-body text-center">
+        <h3 class="card-title">{{ atendimento.cliente }}</h3>
+        <div class="card-body text-muted">
+          <h4><b>Pet: </b>{{ atendimento.pet }}<b> Serviço: </b>{{ atendimento.servico }}</h4>
+        </div>
+      </div>
+
+      <div class="card-body text-center">
+        <h3 class="card-title">Datas</h3>
+        <div class="card-body text-muted">
+          <h4><b>Data serviço: </b>{{ atendimento.data | date:'dd/MM/yyyy' }}<br>
+            <b> Data atendimento gerado: </b>{{ atendimento.dataCriacao | date:'dd/MM/yyyy' }}
+          </h4>
+        </div>
+      </div>
+
+      <div class="card text-center">
+        <h3>Situacao</h3>
+        <div class="card-body text-muted">
+            <ng-container *ngIf="atendimento.servico">
+              Confirmado
+            </ng-container>
+            <ng-container *ngIf="!atendimento.servico">
+              Em analise
+            </ng-container>
+        </div>
+      </div>
+      <div class="card text-center">
+        <h3>Observação</h3>
+        <div class="card-body text-muted">
+          {{ atendimento.observacoes }}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="loader"></div>
+</ng-template>
